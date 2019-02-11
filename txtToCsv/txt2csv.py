@@ -76,12 +76,23 @@ def sent2list(sentence_set):
 		flag = flag + 1
 	return num,csv1,csv2
 
+
+
+
 def write2csv(num,csv_file,csv_name='temp.csv'):
 	with open(csv_name,"w") as csvfile: 
 		writer = csv.writer(csvfile) 
+
+		file_name = os.path.split(csv_name)[0].replace('SCRIPT','WAVE')+'/'
+		floder_name = os.path.split(csv_name)[1].split('.')[0]
+		print(file_name+'/'+floder_name+'/')
+		
+
 		writer.writerow(["wav_filename","transcript"]) #columns_name 
+
+
 		for i in range(len(num)):
-			writer.writerow([str(num[i]).strip()+'.wav',csv_file[i].lower().strip()])#save into csv file
+			writer.writerow([file_name+str(num[i]).strip()+'.wav',csv_file[i].lower().strip()])#save into csv file
 		return csv_name
 def get_wave_dir(root):
 	l=root.split('/')
