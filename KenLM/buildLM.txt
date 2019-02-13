@@ -13,7 +13,8 @@ The following arguments are particularly important:
 -S
     Recommended. Memory to use. This is a number followed by single-character suffix: % for percentage of physical memory
 (on platforms where this is measured), b for bytes, K for kilobytes, M for megabytes, and so on for G and T. If no suffix 
-is given, kilobytes are assumed for compatability with GNU sort. The sort program is not used; the command line is simply designed to be compatible.
+is given, kilobytes are assumed for compatability with GNU sort. The sort program is not used; the command line is simply
+designed to be compatible.
 -T
     Recommended. Temporary file location. 
 	
