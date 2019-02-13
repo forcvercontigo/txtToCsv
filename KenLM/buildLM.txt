@@ -14,3 +14,4 @@ STEP3:convert to binary format,the binary file format makes loading faster.
 	
 STEP4:replace original lm.binary with new generated text.binary
 lm.binary path: DeepSpeech-0.4.1/data/lm/lm.binary
+
