@@ -29,6 +29,8 @@ It’s needed for good model creation (Otherwise, it could result in overfitting
     data/trie
 5 - Write your run file
 An example in my.sh
-6 - 
+6 - Now, run the file IN YOUR DEEPSPEECH directory :
+    /bin/my.sh
+IF everything worked correctly, you should now have a /model_export/output_graph.pb ,your model.
 
 
