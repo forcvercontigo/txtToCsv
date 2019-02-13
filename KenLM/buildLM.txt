@@ -27,4 +27,3 @@ download commond-line client
 STEP5:replace original lm.binary with new generated example.binary and replace trie 
 lm.binary path: DeepSpeech-0.4.1/data/lm/lm.binary
 trie path: DeepSpeech-0.4.1/data/lm/trie
-
