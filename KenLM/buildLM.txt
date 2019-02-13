@@ -1,12 +1,13 @@
+STPE1:install kenlm
 wget -O - https://kheafield.com/code/kenlm.tar.gz |tar xz
 mkdir kenlm/build
 cd kenlm/build
 cmake ..
 make -j2
-
+STEP2:build language model
 Language models are estimated from text using modified Kneser-Ney smoothing without pruning. 
-It is done on disk, enabling one to build much larger models.5 means 5-gram model is made
+5 means 5-gram model is made
 bin/lmplz -o 5 <example.txt >text.arpa 
-
+STEP:convert to binary format
 The binary file format makes loading faster. Run
 bin/build_binary text.arpa text.binary 
