@@ -6,12 +6,25 @@ STPE1:install kenlm
 	make -j2
 
 STEP2:build language model,language models are estimated from text using modified Kneser-Ney smoothing without pruning. 
-5 means 5-gram model is made
-	bin/lmplz -o 5 <example.txt >text.arpa 
+	bin/lmplz -o 5 <example.txt >example.arpa 
+The following arguments are particularly important:
+-o
+    Required. Order of the language model to estimate.
+-S
+    Recommended. Memory to use. This is a number followed by single-character suffix: % for percentage of physical memory (on platforms where this is measured), b for bytes, K for kilobytes, M for megabytes, and so on for G and T. If no suffix is given, kilobytes are assumed for compatability with GNU sort. The sort program is not used; the command line is simply designed to be compatible.
+-T
+    Recommended. Temporary file location. 
+	
 
 STEP3:convert to binary format,the binary file format makes loading faster. 
-	bin/build_binary text.arpa text.binary 
+	bin/build_binary example.arpa example.binary 
 	
-STEP4:replace original lm.binary with new generated text.binary
+STEP4:generate trie
+download commond-line client
+	python3 DeepSpeech-0.4.1/util/taskcluster.py --target 
+	./generate DeepSpeech-0.4.1/util/generate_trie alphabet.txt text.binary example.txt trie
+	
+STEP5:replace original lm.binary with new generated example.binary and replace trie 
 lm.binary path: DeepSpeech-0.4.1/data/lm/lm.binary
+trie path: DeepSpeech-0.4.1/data/lm/trie
 
