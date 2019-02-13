@@ -31,6 +31,6 @@ It’s needed for good model creation (Otherwise, it could result in overfitting
 An example in my.sh
 6 - Now, run the file IN YOUR DEEPSPEECH directory :
     /bin/my.sh
-IF everything worked correctly, you should now have a /model_export/output_graph.pb ,your model.
-
+If everything worked correctly, you should now have a /model_export/output_graph.pb ,your model.
+If progressbar has error,maybe you can try to replace original evaluate.py with my evaluate.py. 
 
