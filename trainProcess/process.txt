@@ -1,0 +1,34 @@
+1 - create 3 directories : train, dev, test.
+
+2 - feed each dir. with corresponding wav’s and a new transcript’s textfile, as CSV file,
+containing those specific wav’s transcript
+    Note about the textfiles :
+    you should have train.csv in the train dir, dev.csv in dev dir and test.csv in test dir
+    Each CSV file must start with lign:
+    wav_filename,wav_filesize,transcript
+70% of all wav’s content in train dir, with corresponding train.csv file,
+
+20% in dev dir, with corresponding dev.csv file,
+
+10% in test dir, with corresponding test.csv file.
+
+IMPORTANT : A wav file can only appear in one directory file.
+It’s needed for good model creation (Otherwise, it could result in overfitting…)
+3 - build LM
+  describ in buildLM folder
+4 - check 
+  Verify your directories :
+    data/TRAIN/train.csv
+    data/TRAIN/record1.wav,record2.wav…(remember : all wav’s are different)
+    data/DEV/dev.csv
+    data/DEV/record1.wav,record2.wav…
+    data/TEST/test.csv
+    data/TEST/record.1.wav,record.2.wav…
+    data/vocabulary.txt
+    data/lm.binary
+    data/trie
+5 - Write your run file
+An example in my.sh
+6 - 
+
+
