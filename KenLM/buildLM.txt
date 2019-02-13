@@ -5,13 +5,12 @@ STPE1:install kenlm
 	cmake ..
 	make -j2
 
-STEP2:build language model
-Language models are estimated from text using modified Kneser-Ney smoothing without pruning. 
+STEP2:build language model,language models are estimated from text using modified Kneser-Ney smoothing without pruning. 
 5 means 5-gram model is made
 	bin/lmplz -o 5 <example.txt >text.arpa 
 
-STEP3:convert to binary format
-The binary file format makes loading faster. 
+STEP3:convert to binary format,the binary file format makes loading faster. 
 	bin/build_binary text.arpa text.binary 
+	
 STEP4:replace original lm.binary with new generated text.binary
-OATH DeepSpeech-0.4.1/data/lm/lm.binary
+lm.binary path: DeepSpeech-0.4.1/data/lm/lm.binary
