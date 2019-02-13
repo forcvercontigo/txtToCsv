@@ -13,3 +13,5 @@ Language models are estimated from text using modified Kneser-Ney smoothing with
 STEP3:convert to binary format
 The binary file format makes loading faster. 
 	bin/build_binary text.arpa text.binary 
+STEP4:replace original lm.binary with new generated text.binary
+OATH DeepSpeech-0.4.1/data/lm/lm.binary
