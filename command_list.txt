@@ -26,6 +26,7 @@ python txt2csv.py
   bin/lmplz -o 5 <example.txt >example.arpa 
 #convert to binary format
   bin/build_binary example.arpa example.binary 
+#for more information,please read buildLM.txt
 4. Verify your directories :
     data/TRAIN/train.csv
     data/TRAIN/record1.wav,record2.wav…(remember : all wav’s are different)
