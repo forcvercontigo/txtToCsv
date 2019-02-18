@@ -1,0 +1,41 @@
+1.install
+ #download
+  wget https://github.com/mozilla/DeepSpeech/releases/download/v0.4.1/deepspeech-0.4.1-models.tar.gz
+  tar xvfz deepspeech-0.4.1-models.tar.gz
+  virtualenv -p python3 $HOME/tmp/deepspeech-venv/
+  source $HOME/tmp/deepspeech-venv/bin/activate
+  pip3 install deepspeech
+  pip3 install -r requirements.txt
+  pip3 install $(python3 util/taskcluster.py --decoder)
+
+2.prepare data
+#for example King-ASR,Source script input =$SOURCE/kingxx//DATA/(CHANNEL0,1,2)/wav/SPEARKxxx/xxx.wav
+#Target script output=$TARGET/kingxx/(CHANNEL0,1,2)/wav/SPEARKxxx.csv
+#transfer txt to csv and move to right directory,output are two csc files,one is true and another is atcual 
+#every csv has 3 cols,filename,filesize and transcript
+python txt2csv.py
+3.build LM
+#install kenLM
+	wget -O - https://kheafield.com/code/kenlm.tar.gz |tar xz
+	mkdir kenlm/build
+	cd kenlm/build
+	cmake ..
+  make -j2
+#build LM
+  bin/lmplz -o 5 <example.txt >example.arpa 
+#convert to binary format
+  bin/build_binary example.arpa example.binary 
+4. Verify your directories :
+    data/TRAIN/train.csv
+    data/TRAIN/record1.wav,record2.wav…(remember : all wav’s are different)
+    data/DEV/dev.csv
+    data/DEV/record1.wav,record2.wav…
+    data/TEST/test.csv
+    data/TEST/record.1.wav,record.2.wav…
+    data/vocabulary.txt
+    data/lm.binary
+    data/trie
+5.Write your run file
+my.sh
+6 - Now, run the file IN YOUR DEEPSPEECH directory :
+/bin/my.sh
