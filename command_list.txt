@@ -22,10 +22,14 @@ python txt2csv.py
    cd kenlm/build
    cmake ..
    make -j2
-#build LM
-  bin/lmplz -o 5 <example.txt >example.arpa 
+#build LM,-o 3 is easy to success
+  kenlm/build/bin/lmplz -o 3 <example.txt >example.arpa 
 #convert to binary format
-  bin/build_binary example.arpa example.binary 
+  kenlm/build/bin/build_binary example.arpa example.binary 
+#generate trie
+  python3 DeepSpeech-0.4.1/util/taskcluster.py --target generate
+  
+./generate/generate_trie /DeepSpeech-0.4.1/data/alphabet.txt example.binary trie
 #for more information,please read buildLM.txt
 4. Verify your directories :
     data/TRAIN/train.csv
@@ -38,6 +42,7 @@ python txt2csv.py
     data/lm.binary
     data/trie
 5.Write your run file
+For more information,please read my.sh
 my.sh
 6 - Now, run the file IN YOUR DEEPSPEECH directory :
 ./bin/my.sh
