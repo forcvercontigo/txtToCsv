@@ -13,6 +13,7 @@
 #Target script output=$TARGET/kingxx/(CHANNEL0,1,2)/wav/SPEARKxxx.csv
 #transfer txt to csv and move to right directory,output are two csc files,one is true and another is atcual 
 #every csv has 3 cols,filename,filesize and transcript
+#for more information,please read txt2csv.py
 python txt2csv.py
 3.build LM
 #install kenLM
