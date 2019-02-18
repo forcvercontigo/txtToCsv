@@ -39,4 +39,4 @@ python txt2csv.py
 5.Write your run file
 my.sh
 6 - Now, run the file IN YOUR DEEPSPEECH directory :
-/bin/my.sh
+./bin/my.sh
