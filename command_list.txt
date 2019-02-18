@@ -34,7 +34,7 @@ python txt2csv.py
     data/DEV/record1.wav,record2.wav…
     data/TEST/test.csv
     data/TEST/record.1.wav,record.2.wav…
-    data/vocabulary.txt
+    data/alpha.txt
     data/lm.binary
     data/trie
 5.Write your run file
