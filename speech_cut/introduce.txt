@@ -1,0 +1,1 @@
+This file trasfer a long speech file into short file,according to silence
