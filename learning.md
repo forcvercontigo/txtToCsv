@@ -7,3 +7,9 @@ The output of the network is a matrix of character probabilities over time. In o
 
 The CTC loss function (PDF link) considers all alignments of the audio to the transcription at the same time, allowing us to maximize the probability of the correct transcription being predicted without worrying about alignment. Finally, we train using the Adam optimizer.
 
+The basic idea is to interpret
+the network outputs as a probability distribution over
+all possible label sequences, conditioned on a given input sequence. Given this distribution, an objective
+function can be derived that directly maximises the
+probabilities of the correct labellings. Since the objective function is differentiable, the network can then be
+trained with standard backpropagation through time
